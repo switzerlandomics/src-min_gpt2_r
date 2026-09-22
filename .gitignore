@@ -3,6 +3,7 @@
 !/data/input.txt
 /output/*
 !/output/.gitkeep
+!/output/tokenization.md
 !/output/specific_dir_name_to_keep
 
 # R session and IDE artifacts

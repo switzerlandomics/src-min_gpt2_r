@@ -148,6 +148,27 @@ is chosen by validation loss, not by sample readability. Older runs without
 `initial_model.rds` show only the selected model's next-token probabilities;
 missing initial predictions are not reconstructed.
 
+
+### From text to training data
+
+The model uses a byte-level tokenizer: each UTF-8 byte becomes one of 256 token IDs (byte value + 1 for R’s one-based indexing). For example, `"you are,"` becomes eight tokens. This is not yet GPT-2’s byte-pair encoding (BPE).
+
+The demonstration script uses the project’s actual tokenizer and batching functions to show how text becomes token IDs, how Tiny Shakespeare is split into training and validation data, and how each training input is paired with its next-byte target.
+
+Bash
+
+```
+Rscript experiments/inspect_tokenizer.R \
+  --input=data/tiny_shakespeare.txt \
+  --text="you are," \
+  --context-length=8 \
+  --start=1 \
+  --output=output/tokenization.md
+```
+
+[View the full tokenisation report](/output/tokenization.md) , including the byte-by-byte tables and a real training window: input `"First Ci"` → targets `"irst Cit"`.
+
+
 ## Reproducibility and outputs
 
 Each dated run under `output/` records its original command, resolved options,
