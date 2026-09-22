@@ -1,7 +1,7 @@
 # GPT-2-style language model from scratch in R
 
 A small, CPU-only **decoder-only Transformer** implemented directly in R. This
-project follows our character-level RNN and single-head Transformer, and shows
+project follows our [character-level RNN](https://github.com/switzerlandomics/src-min_char_rnn_r) and [single-head Transformer](https://github.com/switzerlandomics/src-min_char_transformer_r), and shows
 how multi-head causal attention, independently parameterised stacked blocks,
 GELU feed-forward layers and tied input/output embeddings predict the next token.
 
@@ -220,6 +220,14 @@ The model's array convention is `[batch, time, features]` and its identifiers
 use general names such as `token_ids`, `targets`, `parameters` and `gradients`.
 The causal mask is applied to scores **before softmax**; the output projection
 shares the token-embedding matrix and accumulates gradients from both uses.
+
+## Thoughts
+
+* An interesting thought: the initial random model and the final trained model contain the same architecture and number of parameters, so their files are essentially the same size. Like a ship in a bottle, the same components can form either a carefully constructed ship or an unassembled mess—the difference lies in how they are arranged.
+
+* Our `best_model.rds` is the trained model checkpoint, analogous to the weights of an open-weights model on Hugging Face. To run it locally, we also need the matching model implementation, configuration and tokenizer. In this project, those are provided by our R code; the weights alone are not a standalone program.
+
+* Like other open-weights models, our trained checkpoint must be used with its matching architecture and tokenizer. We store these in R’s native format; Hugging Face models commonly distribute trained weights in `safetensors` format, alongside configuration files, tokenizer files and a model card explaining how to use them.
 
 ## Primary references
 
