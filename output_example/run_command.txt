@@ -1,0 +1,4 @@
+Original command: Rscript experiments/run.R '--input=data/tiny_shakespeare.txt' '--iterations=20000' '--context-length=96' '--embedding-size=96' '--n-heads=4' '--n-layers=3' '--batch-size=4' '--validation-interval=500' '--checkpoint-interval=1000' '--plot-detailed'
+Corpus: /Users/dylanlawless/so/src/min_gpt2_r/data/tiny_shakespeare.txt
+Resolved options: list(input = "data/tiny_shakespeare.txt", iterations = 20000L,     context_length = 96L, embedding_size = 96L, n_heads = 4L,     n_layers = 3L, batch_size = 4L, learning_rate = 0.002, seed = 42L,     validation_interval = 500L, checkpoint_interval = 1000L,     sample_tokens = 60L, resume = "", plot = TRUE, plot_detailed = TRUE)
+R version: R version 4.4.0 (2024-04-24) 

@@ -1,0 +1,43 @@
+2026-09-22 18:49:33 | INFO  | Session started at update 0; target 20000
+2026-09-22 18:49:38 | INFO  | Update 0: validation 5.5636 nats/token
+2026-09-22 18:54:58 | INFO  | Update 500/20000: train 2.4775 | validation 2.4447 | best 2.4447 | [....................]   2.5% | 500/20000 | elapsed 5m 25s | ETA 3h 30m 58s
+2026-09-22 19:00:12 | INFO  | Update 1000/20000: train 2.0697 | validation 2.1768 | best 2.1768 | [=...................]   5.0% | 1000/20000 | elapsed 10m 39s | ETA 3h 22m 12s
+2026-09-22 19:05:27 | INFO  | Update 1500/20000: train 2.0924 | validation 1.9802 | best 1.9802 | [=...................]   7.5% | 1500/20000 | elapsed 15m 53s | ETA 3h 15m 58s
+2026-09-22 19:10:43 | INFO  | Update 2000/20000: train 1.9670 | validation 1.9108 | best 1.9108 | [==..................]  10.0% | 2000/20000 | elapsed 21m 10s | ETA 3h 10m 31s
+2026-09-22 19:15:59 | INFO  | Update 2500/20000: train 1.9620 | validation 1.8056 | best 1.8056 | [==..................]  12.5% | 2500/20000 | elapsed 26m 26s | ETA 3h 05m 04s
+2026-09-22 19:21:24 | INFO  | Update 3000/20000: train 1.7874 | validation 1.7970 | best 1.7970 | [===.................]  15.0% | 3000/20000 | elapsed 31m 51s | ETA 3h 00m 27s
+2026-09-22 19:26:41 | INFO  | Update 3500/20000: train 1.6253 | validation 1.7579 | best 1.7579 | [===.................]  17.5% | 3500/20000 | elapsed 37m 08s | ETA 2h 55m 03s
+2026-09-22 19:32:00 | INFO  | Update 4000/20000: train 1.7191 | validation 1.7468 | best 1.7468 | [====................]  20.0% | 4000/20000 | elapsed 42m 27s | ETA 2h 49m 48s
+2026-09-22 19:37:16 | INFO  | Update 4500/20000: train 1.6333 | validation 1.7378 | best 1.7378 | [====................]  22.5% | 4500/20000 | elapsed 47m 43s | ETA 2h 44m 22s
+2026-09-22 19:42:35 | INFO  | Update 5000/20000: train 1.5435 | validation 1.6915 | best 1.6915 | [=====...............]  25.0% | 5000/20000 | elapsed 53m 01s | ETA 2h 39m 04s
+2026-09-22 19:47:49 | INFO  | Update 5500/20000: train 1.4816 | validation 1.6803 | best 1.6803 | [=====...............]  27.5% | 5500/20000 | elapsed 58m 16s | ETA 2h 33m 37s
+2026-09-22 19:53:07 | INFO  | Update 6000/20000: train 1.6653 | validation 1.6664 | best 1.6664 | [======..............]  30.0% | 6000/20000 | elapsed 1h 03m 33s | ETA 2h 28m 18s
+2026-09-22 19:59:16 | INFO  | Update 6500/20000: train 1.6189 | validation 1.6849 | best 1.6664 | [======..............]  32.5% | 6500/20000 | elapsed 1h 09m 42s | ETA 2h 24m 47s
+2026-09-22 20:05:18 | INFO  | Update 7000/20000: train 1.6807 | validation 1.6235 | best 1.6235 | [=======.............]  35.0% | 7000/20000 | elapsed 1h 15m 45s | ETA 2h 20m 41s
+2026-09-22 20:11:19 | INFO  | Update 7500/20000: train 1.5479 | validation 1.6449 | best 1.6235 | [=======.............]  37.5% | 7500/20000 | elapsed 1h 21m 46s | ETA 2h 16m 16s
+2026-09-22 20:17:33 | INFO  | Update 8000/20000: train 1.7598 | validation 1.6410 | best 1.6235 | [========............]  40.0% | 8000/20000 | elapsed 1h 28m 00s | ETA 2h 11m 59s
+2026-09-22 20:23:06 | INFO  | Update 8500/20000: train 1.5888 | validation 1.6315 | best 1.6235 | [========............]  42.5% | 8500/20000 | elapsed 1h 33m 33s | ETA 2h 06m 33s
+2026-09-22 20:28:28 | INFO  | Update 9000/20000: train 1.4585 | validation 1.5952 | best 1.5952 | [=========...........]  45.0% | 9000/20000 | elapsed 1h 38m 54s | ETA 2h 00m 53s
+2026-09-22 20:33:48 | INFO  | Update 9500/20000: train 1.4890 | validation 1.5984 | best 1.5952 | [=========...........]  47.5% | 9500/20000 | elapsed 1h 44m 15s | ETA 1h 55m 13s
+2026-09-22 20:39:12 | INFO  | Update 10000/20000: train 1.4490 | validation 1.5834 | best 1.5834 | [==========..........]  50.0% | 10000/20000 | elapsed 1h 49m 39s | ETA 1h 49m 39s
+2026-09-22 20:44:35 | INFO  | Update 10500/20000: train 1.4247 | validation 1.6046 | best 1.5834 | [==========..........]  52.5% | 10500/20000 | elapsed 1h 55m 02s | ETA 1h 44m 04s
+2026-09-22 20:50:05 | INFO  | Update 11000/20000: train 1.5183 | validation 1.5865 | best 1.5834 | [===========.........]  55.0% | 11000/20000 | elapsed 2h 00m 32s | ETA 1h 38m 37s
+2026-09-22 20:55:25 | INFO  | Update 11500/20000: train 1.4275 | validation 1.5586 | best 1.5586 | [===========.........]  57.5% | 11500/20000 | elapsed 2h 05m 52s | ETA 1h 33m 02s
+2026-09-22 21:00:45 | INFO  | Update 12000/20000: train 1.4084 | validation 1.5675 | best 1.5586 | [============........]  60.0% | 12000/20000 | elapsed 2h 11m 12s | ETA 1h 27m 28s
+2026-09-22 21:06:04 | INFO  | Update 12500/20000: train 1.4890 | validation 1.5733 | best 1.5586 | [============........]  62.5% | 12500/20000 | elapsed 2h 16m 31s | ETA 1h 21m 54s
+2026-09-22 21:11:24 | INFO  | Update 13000/20000: train 1.4756 | validation 1.5561 | best 1.5561 | [=============.......]  65.0% | 13000/20000 | elapsed 2h 21m 51s | ETA 1h 16m 23s
+2026-09-22 21:16:45 | INFO  | Update 13500/20000: train 1.4591 | validation 1.5405 | best 1.5405 | [=============.......]  67.5% | 13500/20000 | elapsed 2h 27m 11s | ETA 1h 10m 52s
+2026-09-22 21:22:06 | INFO  | Update 14000/20000: train 1.3028 | validation 1.5740 | best 1.5405 | [==============......]  70.0% | 14000/20000 | elapsed 2h 32m 33s | ETA 1h 05m 23s
+2026-09-22 21:27:26 | INFO  | Update 14500/20000: train 1.6253 | validation 1.5358 | best 1.5358 | [==============......]  72.5% | 14500/20000 | elapsed 2h 37m 53s | ETA 59m 53s
+2026-09-22 21:32:48 | INFO  | Update 15000/20000: train 1.4330 | validation 1.5315 | best 1.5315 | [===============.....]  75.0% | 15000/20000 | elapsed 2h 43m 14s | ETA 54m 25s
+2026-09-22 21:38:08 | INFO  | Update 15500/20000: train 1.4955 | validation 1.5076 | best 1.5076 | [===============.....]  77.5% | 15500/20000 | elapsed 2h 48m 35s | ETA 48m 57s
+2026-09-22 21:43:48 | INFO  | Update 16000/20000: train 1.3151 | validation 1.5316 | best 1.5076 | [================....]  80.0% | 16000/20000 | elapsed 2h 54m 14s | ETA 43m 34s
+2026-09-22 21:49:07 | INFO  | Update 16500/20000: train 1.3969 | validation 1.4942 | best 1.4942 | [================....]  82.5% | 16500/20000 | elapsed 2h 59m 34s | ETA 38m 05s
+2026-09-22 21:54:28 | INFO  | Update 17000/20000: train 1.3237 | validation 1.5091 | best 1.4942 | [=================...]  85.0% | 17000/20000 | elapsed 3h 04m 54s | ETA 32m 38s
+2026-09-22 21:59:56 | INFO  | Update 17500/20000: train 1.4237 | validation 1.5350 | best 1.4942 | [=================...]  87.5% | 17500/20000 | elapsed 3h 10m 23s | ETA 27m 12s
+2026-09-22 22:05:04 | INFO  | Update 18000/20000: train 1.4058 | validation 1.5361 | best 1.4942 | [==================..]  90.0% | 18000/20000 | elapsed 3h 15m 31s | ETA 21m 43s
+2026-09-22 22:11:17 | INFO  | Update 18500/20000: train 1.3992 | validation 1.5168 | best 1.4942 | [==================..]  92.5% | 18500/20000 | elapsed 3h 21m 44s | ETA 16m 21s
+2026-09-22 22:16:48 | INFO  | Update 19000/20000: train 1.4593 | validation 1.5139 | best 1.4942 | [===================.]  95.0% | 19000/20000 | elapsed 3h 27m 15s | ETA 10m 54s
+2026-09-22 22:22:06 | INFO  | Update 19500/20000: train 1.3573 | validation 1.5067 | best 1.4942 | [===================.]  97.5% | 19500/20000 | elapsed 3h 32m 33s | ETA 5m 27s
+2026-09-22 22:27:25 | INFO  | Update 20000/20000: train 1.4248 | validation 1.5151 | best 1.4942 | [====================] 100.0% | 20000/20000 | elapsed 3h 37m 52s | ETA 0s
+2026-09-22 22:27:32 | INFO  | Finished. Results: output/20260922_184933

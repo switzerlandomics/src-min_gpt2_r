@@ -85,7 +85,7 @@ Rscript experiments/run.R \
 Larger run — allow approximately 1–2 hours, potentially longer. Increase the context to 64 tokens, embedding size to 64, depth to three blocks, and batch size to four. Use 10,000 updates to give this larger model more opportunities to learn. Retaining four heads increases each head’s feature dimension from 8 in the original run to 16 here, without changing the number of heads.
 
 
-<!-- Private example may not be visible to readers (20260922_164139) -->
+<!-- Private example may not be visible to readers (20260922_165202) -->
 ```sh
 Rscript experiments/run.R \
   --input=data/tiny_shakespeare.txt \
@@ -104,6 +104,55 @@ The larger run does substantially more computation per update, as well as perfor
 
 Both configurations save metrics, a live training figure and resumable checkpoints during training. Detailed attention and prediction figures are generated at the end. These experiments use the same byte-token vocabulary, but changing the context length also changes the validation windows, so their reported validation losses are not a strictly controlled model-size comparison.
 
+The command above is a 10,000-update run that took about an hour. Use its validation curve and best-validation update to decide what to change next. There are two sensible paths.
+
+If validation loss was still decreasing near update 10,000, train the same model longer first. This is the cleanest experiment: it tells us whether the current architecture still has more to learn, without introducing another variable. The runner supports resuming with a higher total update count:
+
+```sh
+Rscript experiments/run.R \
+  --resume=output/YOUR_RUN_DIRECTORY \
+  --iterations=20000 \
+  --plot-detailed
+```
+
+This continues from the latest checkpoint rather than starting again. Check whether the best validation loss improves; a lower training loss alone is not sufficient evidence of better generalisation.
+
+If validation loss had largely levelled off, my next architecture experiment would be `--embedding-size=96`. Keep the context length, number of blocks, heads, batch size and updates unchanged. This increases the representation size from 64 to 96, giving each of the four heads 24 features instead of 16, while allowing a relatively clear comparison with the previous run.
+
+```sh
+Rscript experiments/run.R \
+  --input=data/tiny_shakespeare.txt \
+  --iterations=10000 \
+  --context-length=64 \
+  --embedding-size=96 \
+  --n-heads=4 \
+  --n-layers=3 \
+  --batch-size=4 \
+  --validation-interval=500 \
+  --checkpoint-interval=1000 \
+  --plot-detailed
+```
+
+Allow roughly 2–3 hours as a planning estimate, not a benchmark: wider embeddings increase computation throughout attention and the feed-forward layers.
+
+I would not increase context length, width, depth and batch size together yet. Changing one variable at a time makes it much easier to explain what improved—or failed to improve—in the blog. If the wider model helps but generated passages still lose coherence over longer spans, increasing `--context-length` from 64 to 128 would be a logical subsequent experiment, although it will make CPU training substantially more expensive.
+
+If you continue further:
+resume the current model to 20,000 total updates; then test a new run with context length 96. If that helps, keep the architecture fixed and try a larger (~10 MB) corpus with more training updates. The Tiny Shakespeare is about 1MB.
+
+```sh
+Rscript experiments/run.R \
+  --input=data/tiny_shakespeare.txt \
+  --iterations=20000 \
+  --context-length=96 \
+  --embedding-size=96 \
+  --n-heads=4 \
+  --n-layers=3 \
+  --batch-size=4 \
+  --validation-interval=500 \
+  --checkpoint-interval=1000 \
+  --plot-detailed
+```
 
 ## Monitoring and publication figures
 

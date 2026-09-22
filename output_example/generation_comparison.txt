@@ -1,0 +1,10 @@
+Text generation: initial and best-validation model
+Both samples use identical prompt, length, temperature, top_k and seed.
+The selected model was chosen by validation loss, not sample readability.
+
+=== update 0 | validation 5.563571 nats/token | prompt "you are," | temperature 1 | top_k 20 | seed 100 ===
+you are,<e7>PP<81><bc><d0>7'p<ff>l<95><87>]A<bc>b<e5>d<e6>?<d3><fb><b4><91><8e>魕0X<e9><a2>K<d3><c7>K<81><ad><d8><d5><f6><e3>#<99>7<af>5<af>﵆yg
+
+=== update 16500 | validation 1.494201 nats/token | prompt "you are," | temperature 1 | top_k 20 | seed 100 ===
+you are, the meed basts
+And as but look, cause: bot alave he have pa

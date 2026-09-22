@@ -1,0 +1,99 @@
+=== update 0 | validation 5.563571 nats/token | prompt "you are," | temperature 1 | top_k 20 | seed 100 ===
+you are,<e7>PP<81><bc><d0>7'p<ff>l<95><87>]A<bc>b<e5>d<e6>?<d3><fb><b4><91><8e>魕0X<e9><a2>K<d3><c7>K<81><ad><d8><d5><f6><e3>#<99>7<af>5<af>﵆yg
+
+=== update 1000 | validation 2.176813 nats/token | prompt "you are," | temperature 1 | top_k 20 | seed 100 ===
+you are, therere.
+Cut parteten, soior hou.
+RINYIEde, INE:
+What so be
+
+=== update 2000 | validation 1.910832 nats/token | prompt "you are," | temperature 1 | top_k 20 | seed 100 ===
+you are, thereise if aming mark
+And may
+Athat reall ondal be all bor
+
+=== update 3000 | validation 1.797009 nats/token | prompt "you are," | temperature 1 | top_k 20 | seed 100 ===
+you are, and ot of not
+My crontingling pelocksure; I am
+The send at 
+
+=== update 4000 | validation 1.746755 nats/token | prompt "you are," | temperature 1 | top_k 20 | seed 100 ===
+you are, with being;
+Were it offer's wos rorseffeirts your so forthe
+
+=== update 5000 | validation 1.691458 nats/token | prompt "you are," | temperature 1 | top_k 20 | seed 100 ===
+you are, the fear but from it
+More lovel unpeaitetous put a past as 
+
+=== update 6000 | validation 1.666428 nats/token | prompt "you are," | temperature 1 | top_k 20 | seed 100 ===
+you are, shall so pity.
+
+QUEEN ELIZABETH:
+Such; swoor lad have me fo
+
+=== update 7000 | validation 1.623504 nats/token | prompt "you are," | temperature 1 | top_k 20 | seed 100 ===
+you are,
+That come you do you chars; this,
+Lory siddenenoughter that
+
+=== update 8000 | validation 1.640971 nats/token | prompt "you are," | temperature 1 | top_k 20 | seed 100 ===
+you are,
+To summanys happy of atten's my knighing:
+My house in them 
+
+=== update 9000 | validation 1.595174 nats/token | prompt "you are," | temperature 1 | top_k 20 | seed 100 ===
+you are,
+And more fear'd a doge an I cast
+His violal. battle have a 
+
+=== update 10000 | validation 1.583426 nats/token | prompt "you are," | temperature 1 | top_k 20 | seed 100 ===
+you are, the feaste.
+
+GLOUCESTER:
+Yet is pettes you, bring and my mo
+
+=== update 11000 | validation 1.586515 nats/token | prompt "you are," | temperature 1 | top_k 20 | seed 100 ===
+you are,
+That do this can it no thing blong?
+Ill is her, who with me
+
+=== update 12000 | validation 1.567550 nats/token | prompt "you are," | temperature 1 | top_k 20 | seed 100 ===
+you are,
+If were insusting die but not nor in
+So lay summerle, the w
+
+=== update 13000 | validation 1.556129 nats/token | prompt "you are," | temperature 1 | top_k 20 | seed 100 ===
+you are, that for you brother
+Suppetiters? Lord her, we'll have that
+
+=== update 14000 | validation 1.574008 nats/token | prompt "you are," | temperature 1 | top_k 20 | seed 100 ===
+you are, they not out is a foundere in be,
+Conpealse whose the the c
+
+=== update 15000 | validation 1.531501 nats/token | prompt "you are," | temperature 1 | top_k 20 | seed 100 ===
+you are,
+And more more with here too brand,
+Answer'd hence them that
+
+=== update 16000 | validation 1.531650 nats/token | prompt "you are," | temperature 1 | top_k 20 | seed 100 ===
+you are, and boy thou love hear it
+play; yes if your bade men for a 
+
+=== update 17000 | validation 1.509098 nats/token | prompt "you are," | temperature 1 | top_k 20 | seed 100 ===
+you are, and brought adless
+Were took am your voins: we'll not so di
+
+=== update 18000 | validation 1.536135 nats/token | prompt "you are," | temperature 1 | top_k 20 | seed 100 ===
+you are, there's sepulet well; or eyes go,
+Nor, welcomes with our wo
+
+=== update 19000 | validation 1.513871 nats/token | prompt "you are," | temperature 1 | top_k 20 | seed 100 ===
+you are, and again privily cause
+To make gold I have half and have s
+
+=== update 20000 | validation 1.515128 nats/token | prompt "you are," | temperature 1 | top_k 20 | seed 100 ===
+you are, the doth daughter.
+
+All:
+Moreon Call:
+Which women show the 
