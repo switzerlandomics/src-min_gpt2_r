@@ -1,0 +1,20 @@
+# Run from repository root: Rscript tests/test_tokenizer.R
+source("R/tokenizer.R")
+expect_error <- function(expression) {
+  stopifnot(tryCatch({ force(expression); FALSE }, error = function(e) TRUE))
+}
+tokenizer <- new_byte_tokenizer()
+stopifnot(identical(vocabulary_size(tokenizer), 256L))
+text <- paste0("To be, or not to be\n", intToUtf8(c(0x00E9, 0x1F642)))
+stopifnot(identical(decode_tokens(encode_text(text, tokenizer), tokenizer), enc2utf8(text)))
+stopifnot(identical(encode_text("", tokenizer), integer(0)))
+stopifnot(identical(decode_tokens(integer(0), tokenizer), ""))
+bytes <- as.raw(0:255)
+stopifnot(identical(encode_bytes(bytes, tokenizer), 1:256))
+stopifnot(identical(decode_bytes(1:256, tokenizer), bytes))
+expect_error(encode_bytes("text", tokenizer))
+expect_error(decode_bytes(c(0, 257), tokenizer))
+expect_error(decode_bytes(c(1, NA_real_), tokenizer))
+expect_error(decode_tokens(256L, tokenizer))
+expect_error(decode_tokens(1L, tokenizer))
+cat("PASS: tokenizer\n")

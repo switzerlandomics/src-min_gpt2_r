@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="1580" height="720" viewBox="0 0 1580 720"
+     role="img" aria-labelledby="figure-title figure-description">
+  <title id="figure-title">Blocks and heads in the model</title>
+  <desc id="figure-description">An input sequence passes through two Transformer blocks in series. Each block contains four attention heads in parallel; their outputs are combined and passed through the remainder of the block before the next block receives the result.</desc>
+
+  <!-- Editable vector artwork. Minimum displayed font size: 16px = 12pt at 96dpi.
+       Page size matches the 1580 × 720 house-style reference. -->
+  <defs>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#E5262F"/>
+    </marker>
+    <marker id="arrow-grey" viewBox="0 0 10 10" refX="9" refY="5"
+            markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#858D91"/>
+    </marker>
+  </defs>
+
+  <rect id="background" x="0" y="0" width="1580" height="720" fill="#FFFFFF"/>
+
+  <!-- Heading: text is real SVG text, editable in Inkscape. -->
+  <g id="heading" fill="#000000" font-family="Arial, Helvetica, sans-serif">
+    <text x="48" y="67" font-size="35" font-weight="700">Blocks and heads in the model</text>
+    <text x="48" y="108" font-size="19">The model processes the input through two Transformer blocks sequentially.</text>
+    <text x="48" y="136" font-size="19">Within each block, four attention heads process that block’s input in parallel.</text>
+  </g>
+
+  <!-- Sequential blocks bracket. -->
+  <g id="sequential-label" font-family="Arial, Helvetica, sans-serif">
+    <text x="755" y="186" font-size="19" fill="#000000" text-anchor="middle">Blocks are stacked sequentially</text>
+    <path d="M 755 198 V 215 M 459 239 V 215 H 1051 V 239"
+          fill="none" stroke="#E5262F" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="755" cy="215" r="5" fill="#E5262F"/>
+  </g>
+
+  <!-- Main flow: red arrows mean succession between modules. -->
+  <g id="main-flow" fill="none" stroke="#E5262F" stroke-width="3"
+     stroke-linecap="round" marker-end="url(#arrow-red)">
+    <path d="M 188 411 H 222"/>
+    <path d="M 739 411 H 770"/>
+    <path d="M 1287 411 H 1326"/>
+  </g>
+
+  <!-- Input representation. -->
+  <g id="input-box" font-family="Arial, Helvetica, sans-serif">
+    <rect x="26" y="367" width="162" height="88" rx="10"
+          fill="#F3F2F2" stroke="#B8BEC2" stroke-width="1.5"/>
+    <text x="107" y="392" font-size="17" text-anchor="middle" fill="#000000">
+      <tspan x="107" dy="0">Input tokens</tspan>
+      <tspan x="107" dy="21">+</tspan>
+      <tspan x="107" dy="21">embeddings</tspan>
+    </text>
+  </g>
+
+  <!-- Transformer block 1. -->
+  <g id="transformer-block-1" font-family="Arial, Helvetica, sans-serif">
+    <rect x="222" y="264" width="517" height="279" rx="13"
+          fill="#FDEBED" stroke="#E5262F" stroke-width="2"/>
+    <text x="480.5" y="297" font-size="21" font-weight="700"
+          fill="#E5262F" text-anchor="middle">Transformer block 1</text>
+
+    <!-- The same block input branches to all four heads. -->
+    <path d="M 226 411 H 251 M 251 343 V 484"
+          stroke="#858D91" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <g fill="none" stroke="#858D91" stroke-width="1.8" marker-end="url(#arrow-grey)">
+      <path d="M 251 343 H 284"/>
+      <path d="M 251 390 H 284"/>
+      <path d="M 251 437 H 284"/>
+      <path d="M 251 484 H 284"/>
+    </g>
+
+    <!-- Four attention heads; all receive the same block input. -->
+    <g fill="#FFFFFF" stroke="#B8BEC2" stroke-width="1.4">
+      <rect x="285" y="324" width="98" height="38" rx="7"/>
+      <rect x="285" y="371" width="98" height="38" rx="7"/>
+      <rect x="285" y="418" width="98" height="38" rx="7"/>
+      <rect x="285" y="465" width="98" height="38" rx="7"/>
+    </g>
+    <g font-size="17" fill="#000000" text-anchor="middle">
+      <text x="334" y="350">Head 1</text>
+      <text x="334" y="397">Head 2</text>
+      <text x="334" y="444">Head 3</text>
+      <text x="334" y="491">Head 4</text>
+    </g>
+
+    <!-- Head outputs merge before their shared output projection. -->
+    <path d="M 383 343 H 420 M 383 390 H 420 M 383 437 H 420 M 383 484 H 420
+             M 420 343 V 484"
+          stroke="#858D91" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <path d="M 420 411 H 454" stroke="#858D91" stroke-width="2"
+          fill="none" marker-end="url(#arrow-grey)"/>
+
+    <rect x="456" y="382" width="110" height="58" rx="8"
+          fill="#FFFFFF" stroke="#E5262F" stroke-width="1.7"/>
+    <text x="511" y="405" font-size="16" text-anchor="middle" fill="#000000">
+      <tspan x="511">Combine</tspan><tspan x="511" dy="20">heads</tspan>
+    </text>
+    <path d="M 566 411 H 584" fill="none" stroke="#E5262F"
+          stroke-width="2.3" marker-end="url(#arrow-red)"/>
+
+    <rect x="587" y="382" width="136" height="58" rx="8"
+          fill="#F3F2F2" stroke="#B8BEC2" stroke-width="1.4"/>
+    <text x="655" y="405" font-size="16" text-anchor="middle" fill="#000000">
+      <tspan x="655">Residual +</tspan><tspan x="655" dy="20">feed-forward</tspan>
+    </text>
+  </g>
+
+  <!-- Transformer block 2: different learned heads receive block 1's output. -->
+  <g id="transformer-block-2" font-family="Arial, Helvetica, sans-serif">
+    <rect x="770" y="264" width="517" height="279" rx="13"
+          fill="#FDEBED" stroke="#E5262F" stroke-width="2"/>
+    <text x="1028.5" y="297" font-size="21" font-weight="700"
+          fill="#E5262F" text-anchor="middle">Transformer block 2</text>
+
+    <path d="M 774 411 H 799 M 799 343 V 484"
+          stroke="#858D91" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <g fill="none" stroke="#858D91" stroke-width="1.8" marker-end="url(#arrow-grey)">
+      <path d="M 799 343 H 832"/>
+      <path d="M 799 390 H 832"/>
+      <path d="M 799 437 H 832"/>
+      <path d="M 799 484 H 832"/>
+    </g>
+    <g fill="#FFFFFF" stroke="#B8BEC2" stroke-width="1.4">
+      <rect x="833" y="324" width="98" height="38" rx="7"/>
+      <rect x="833" y="371" width="98" height="38" rx="7"/>
+      <rect x="833" y="418" width="98" height="38" rx="7"/>
+      <rect x="833" y="465" width="98" height="38" rx="7"/>
+    </g>
+    <g font-size="17" fill="#000000" text-anchor="middle">
+      <text x="882" y="350">Head 1</text>
+      <text x="882" y="397">Head 2</text>
+      <text x="882" y="444">Head 3</text>
+      <text x="882" y="491">Head 4</text>
+    </g>
+
+    <path d="M 931 343 H 968 M 931 390 H 968 M 931 437 H 968 M 931 484 H 968
+             M 968 343 V 484"
+          stroke="#858D91" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <path d="M 968 411 H 1002" stroke="#858D91" stroke-width="2"
+          fill="none" marker-end="url(#arrow-grey)"/>
+
+    <rect x="1004" y="382" width="110" height="58" rx="8"
+          fill="#FFFFFF" stroke="#E5262F" stroke-width="1.7"/>
+    <text x="1059" y="405" font-size="16" text-anchor="middle" fill="#000000">
+      <tspan x="1059">Combine</tspan><tspan x="1059" dy="20">heads</tspan>
+    </text>
+    <path d="M 1114 411 H 1132" fill="none" stroke="#E5262F"
+          stroke-width="2.3" marker-end="url(#arrow-red)"/>
+
+    <rect x="1135" y="382" width="136" height="58" rx="8"
+          fill="#F3F2F2" stroke="#B8BEC2" stroke-width="1.4"/>
+    <text x="1203" y="405" font-size="16" text-anchor="middle" fill="#000000">
+      <tspan x="1203">Residual +</tspan><tspan x="1203" dy="20">feed-forward</tspan>
+    </text>
+  </g>
+
+  <!-- Final prediction. -->
+  <g id="output-box" font-family="Arial, Helvetica, sans-serif">
+    <rect x="1326" y="367" width="221" height="88" rx="10"
+          fill="#F3F2F2" stroke="#B8BEC2" stroke-width="1.5"/>
+    <text x="1436.5" y="407" font-size="18" text-anchor="middle" fill="#000000">
+      <tspan x="1436.5">Next-token</tspan>
+      <tspan x="1436.5" dy="23">probabilities</tspan>
+    </text>
+  </g>
+
+  <!-- Parallelism callout. -->
+  <g id="parallel-label" font-family="Arial, Helvetica, sans-serif">
+    <circle cx="300" cy="543" r="5" fill="#E5262F"/>
+    <path d="M 300 548 L 269 601" fill="none"
+          stroke="#E5262F" stroke-width="2" stroke-linecap="round"/>
+    <text x="130" y="630" font-size="19" fill="#000000">Heads within a block run in parallel</text>
+  </g>
+</svg>

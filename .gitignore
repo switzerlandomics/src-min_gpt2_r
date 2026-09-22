@@ -1,0 +1,31 @@
+# Downloaded corpus and local experiment products
+/data/*.txt
+!/data/input.txt
+/output/*
+!/output/.gitkeep
+!/output/specific_dir_name_to_keep
+
+# R session and IDE artifacts
+.Rhistory
+.RData
+.Ruserdata
+.Rproj.user/
+*.Rproj
+
+# Local environment and secrets
+.Renviron
+.env
+.env.*
+!.env.example
+
+
+# Local scratch, temporary files and platform files
+temp
+tmp
+/scratch/
+/temp/
+/tmp/
+.DS_Store
+Thumbs.db
+*.swp
+*~
