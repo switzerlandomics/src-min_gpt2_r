@@ -1,26 +1,30 @@
 # GPT-2-style language model from scratch in R
 
-A small, CPU-only **decoder-only Transformer** implemented directly in R. This
-project follows our [character-level RNN](https://github.com/switzerlandomics/src-min_char_rnn_r) and [single-head Transformer](https://github.com/switzerlandomics/src-min_char_transformer_r), and shows
-how multi-head causal attention, independently parameterised stacked blocks,
-GELU feed-forward layers and tied input/output embeddings predict the next token.
+A small, CPU-only **decoder-only Transformer** implemented directly in R. 
+This project follows our [character-level RNN](https://github.com/switzerlandomics/src-min_char_rnn_r) and [single-head Transformer](https://github.com/switzerlandomics/src-min_char_transformer_r), and shows how multi-head causal attention, independently parameterised stacked blocks, GELU feed-forward layers and tied input/output embeddings predict the next token.
 
-This is an educational **architectural reproduction**, not OpenAI's original
-GPT-2 pretraining pipeline, scale or language quality.
+This is an educational **architectural reproduction**, not OpenAI's original GPT-2 pretraining pipeline, scale or language quality.
+
+### Training progression
+
+The model's generated text becomes more structured as training progresses. Each sample uses the same prompt and sampling settings.
+
+![GPT-2 training sample progression](output_example/sample_typing_demo_compressed.gif)
+
+### Attention across Transformer blocks
+
+The following animation shows the attention patterns learned by the model.
+
+![Attention patterns across Transformer blocks](output_example/attention_block.gif)
+
 
 ## Scope and dependencies
 
-The model implements its forward pass, complete manual backward pass, next-token
-cross-entropy, Adam updates, numerical gradient checks, held-out validation,
-checkpointing and uncached autoregressive sampling in ordinary R matrices and
-arrays. It currently uses **individual UTF-8 bytes**, with 256 one-based token
-IDs. GPT-2's byte-level BPE and key-value-cached generation are future, separate
-steps. No deep-learning framework, automatic differentiation, pretrained neural
-weights or packaged Transformer layers are used for training.
+The model implements its forward pass, complete manual backward pass, next-token cross-entropy, Adam updates, numerical gradient checks, held-out validation, checkpointing and uncached autoregressive sampling in ordinary R matrices and arrays. It currently uses **individual UTF-8 bytes**, with 256 one-based token IDs. 
+GPT-2's byte-level BPE and key-value-cached generation are future, separate steps. No deep-learning framework, automatic differentiation, pretrained neural weights or packaged Transformer layers are used for training.
 
-`ggplot2` is optional for saved figures; `svglite` is optional for editable SVG
-publication figures. Neither package is required to train or evaluate the model.
-Install the plotting packages only if needed:
+`ggplot2` is optional for saved figures; `svglite` is optional for editable SVG publication figures. Neither package is required to train or evaluate the model.
+Install the plotting packages if you don't have:
 
 ```r
 install.packages(c("ggplot2", "svglite"))
@@ -39,8 +43,7 @@ Rscript experiments/run.R --iterations=100
 ```
 
 `data/input.txt` is a small offline smoke-test corpus, not a meaningful
-language-modelling benchmark. Supply your own local copy of Tiny Shakespeare
-at `data/tiny_shakespeare.txt` for a longer experiment:
+language-modelling benchmark. Supply your own local copy of Tiny Shakespeare at `data/tiny_shakespeare.txt` for a longer experiment:
 
 ```sh
 Rscript experiments/run.R \
@@ -156,13 +159,9 @@ Rscript experiments/run.R \
 
 ## Monitoring and publication figures
 
-`--plot` refreshes `training.png` at every validation measurement while the
-experiment continues. `metrics.csv` and resumable checkpoints are saved
-independently of plotting. The training series is loss from sampled windows;
-validation measures fixed held-out windows. Neither series is smoothed.
+`--plot` refreshes `training.png` at every validation measurement while the experiment continues. `metrics.csv` and resumable checkpoints are saved independently of plotting. The training series is loss from sampled windows; validation measures fixed held-out windows. Neither series is smoothed.
 
-`--plot-detailed` **implies `--plot`**. After training it uses the saved
-best-validation checkpoint and the same short validation prompt to create:
+`--plot-detailed` **implies `--plot`**. After training it uses the saved best-validation checkpoint and the same short validation prompt to create:
 
 | Output under `output/YOUR_RUN/detailed/` | Measured content |
 |---|---|
@@ -170,18 +169,8 @@ best-validation checkpoint and the same short validation prompt to create:
 | `next_token_probabilities.png` and optionally `.svg` | Token probabilities from the selected model, compared with the initial model when available. |
 | `attention_block_01_head_01.png` and optionally `.svg`, etc. | One compact attention matrix for **every head in every block**. All use the same 0–1 scale; grey cells indicate masked future positions. |
 
-The main output directory also contains a compact `attention.png` for the first
-head of the first block, generated at the end of the run. Detailed figures are
-not recalculated at every training update. Plotting failures produce warnings,
-not training failures. If `svglite` is absent, detailed PNGs are still saved.
-
-The plots use a shared teal, blue-grey and neutral palette and export at
-approximately the intended blog presentation size. Theme text is **at least
-12 pt in the SVG**, with 16 pt titles. Single-head attention exports at
-4.5 × 4.5 inches; next-token predictions at 5 × 4.5 inches; and learning curves
-at 5.5 × 4 or 5.5 × 4.5 inches. Reducing an entire SVG in Inkscape or on the
-website will also reduce its apparent text size. Use a standard sans-serif font
-or an equivalent installed locally; no font files are included.
+The main output directory also contains a compact `attention.png` for the first head of the first block, generated at the end of the run. 
+Detailed figures are not recalculated at every training update. Plotting failures produce warnings, not training failures. If `svglite` is absent, detailed PNGs are still saved.
 
 To produce detailed plots for an already completed run without further updates:
 
@@ -192,11 +181,7 @@ Rscript experiments/run.R \
   --plot-detailed
 ```
 
-Set `--iterations` to that run's saved **total** update count. The selected model
-is chosen by validation loss, not by sample readability. Older runs without
-`initial_model.rds` show only the selected model's next-token probabilities;
-missing initial predictions are not reconstructed.
-
+Set `--iterations` to that run's saved **total** update count. The selected model is chosen by validation loss, not by sample readability. Older runs without `initial_model.rds` show only the selected model's next-token probabilities; missing initial predictions are not reconstructed.
 
 ## Tokenizer - From text to training data
 
@@ -218,13 +203,8 @@ Rscript experiments/inspect_tokenizer.R \
 
 ## Reproducibility and outputs
 
-Each dated run under `output/` records its original command, resolved options,
-corpus checksum, best-validation model, complete resumable checkpoint, metrics
-and a model-generated sample. `experiment.log` reproduces the concise console
-progress reports with elapsed time and an ETA measured from the current session.
-On resume, the corpus checksum is checked, and only the total iteration target
-and plotting flags may change. Saving the complete checkpoint at validation
-also keeps model-selection metadata and recoverable training history aligned.
+Each dated run under `output/` records its original command, resolved options, corpus checksum, best-validation model, complete resumable checkpoint, metrics and a model-generated sample. `experiment.log` reproduces the concise console progress reports with elapsed time and an ETA measured from the current session.
+On resume, the corpus checksum is checked, and only the total iteration target and plotting flags may change. Saving the complete checkpoint at validation also keeps model-selection metadata and recoverable training history aligned.
 
 ```text
 output/YOUR_RUN/
@@ -245,8 +225,7 @@ output/YOUR_RUN/
     └── ...                            # One pair per block and head
 ```
 
-The test portion of the corpus is held aside and is not used for ordinary
-checkpoint selection. The original training corpus remains on your machine.
+The test portion of the corpus is held aside and is not used for ordinary checkpoint selection. The original training corpus remains on your machine.
 
 ## Repository structure
 
@@ -265,10 +244,8 @@ docs/                   Model and optional figure-design notes
 output/                 Local experiment artefacts, excluded from Git
 ```
 
-The model's array convention is `[batch, time, features]` and its identifiers
-use general names such as `token_ids`, `targets`, `parameters` and `gradients`.
-The causal mask is applied to scores **before softmax**; the output projection
-shares the token-embedding matrix and accumulates gradients from both uses.
+The model's array convention is `[batch, time, features]` and its identifiers use general names such as `token_ids`, `targets`, `parameters` and `gradients`.
+The causal mask is applied to scores **before softmax**; the output projection shares the token-embedding matrix and accumulates gradients from both uses.
 
 ## Thoughts
 
