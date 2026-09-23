@@ -280,13 +280,14 @@ shares the token-embedding matrix and accumulates gradients from both uses.
 
 ## Primary references
 
+- Radford A, Wu J, Child R, Luan D, Amodei D, Sutskever I. Language models are unsupervised multitask learners. OpenAI blog. 2019 Feb 24;1(8):9. [*Language Models are Unsupervised Multitask Learners*](https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf).
 - OpenAI's [original GPT-2 repository](https://github.com/openai/gpt-2),
   particularly [`src/model.py`](https://github.com/openai/gpt-2/blob/master/src/model.py),
   [`src/encoder.py`](https://github.com/openai/gpt-2/blob/master/src/encoder.py)
   and [`src/sample.py`](https://github.com/openai/gpt-2/blob/master/src/sample.py).
-- Radford et al. (2019), [*Language Models are Unsupervised Multitask Learners*](https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf).
-- [Released GPT-2 weights and model card](https://huggingface.co/openai-community/gpt2),
-  relevant to optional future compatibility testing, not this project's training.
+- [Released GPT-2 weights and model card](https://huggingface.co/openai-community/gpt2), relevant to optional future compatibility testing, not this project's training.
+- <https://openai.com/index/better-language-models/>
+- <https://openai.com/index/gpt-2-6-month-follow-up/>
+- <https://openai.com/index/gpt-2-1-5b-release/>
+- <https://huggingface.co/openai-community/gpt2>
 
-The R training settings are independently defined and do not claim to recreate
-OpenAI's unreleased original GPT-2 training pipeline.
