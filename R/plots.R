@@ -2,10 +2,23 @@
 # Live monitoring writes only PNG. Detailed figures use the same ggplot object
 # for compact PNG and (when svglite is installed) editable SVG exports.
 
+# plot_colours <- list(
+#   training = "#687984", validation = "#087A92", selection = "#E5262F",
+#   attention_low = "#F1F8FA", attention_high = "#087A92",
+#   masked = "#F3F2F2", grid = "#E7EBEE", border = "#D9D9D9"
+# )
+
+accent_colour <- "#E5262F"
+
 plot_colours <- list(
-  training = "#687984", validation = "#087A92", selection = "#E5262F",
-  attention_low = "#F1F8FA", attention_high = "#087A92",
-  masked = "#F3F2F2", grid = "#E7EBEE", border = "#D9D9D9"
+  training = "#687984",
+  validation = accent_colour,
+  selection = accent_colour,
+  attention_low = "#FDEBED",
+  attention_high = accent_colour,
+  masked = "#F3F2F2",
+  grid = "#E7EBEE",
+  border = "#D9D9D9"
 )
 
 plotting_available <- function() {
@@ -176,7 +189,15 @@ attention_figure <- function(data, token_ids, tokenizer, layer, head) {
     ggplot2::scale_fill_gradient(low = plot_colours$attention_low,
                                  high = plot_colours$attention_high,
                                  na.value = plot_colours$masked, limits = c(0, 1),
-                                 name = "Weight") +
+                                 breaks = seq(0, 1, by = 0.25),
+                                 labels = sprintf("%.2f", seq(0, 1, by = 0.25)),
+                                 name = "Weight",
+                                 guide = ggplot2::guide_colourbar(
+                                   direction = "vertical",
+                                   title.position = "top",
+                                   barheight = grid::unit(1.5, "in"),
+                                   barwidth = grid::unit(0.16, "in")
+                                 )) +
     ggplot2::scale_x_continuous(breaks = seq_len(n), labels = labels,
                                 expand = ggplot2::expansion(add = 0.5)) +
     ggplot2::scale_y_reverse(breaks = seq_len(n), labels = labels,
@@ -186,7 +207,12 @@ attention_figure <- function(data, token_ids, tokenizer, layer, head) {
                   x = "Key token", y = "Query token",
                   caption = "Grey: masked future positions.") +
     plot_theme() +
-    ggplot2::theme(axis.text.x = ggplot2::element_text(angle = 45, hjust = 1))
+    ggplot2::theme(
+      axis.text.x = ggplot2::element_text(angle = 45, hjust = 1),
+      # Override the shared top legend for compact single-head attention plots.
+      legend.position = "right",
+      legend.direction = "vertical"
+    )
 }
 
 # A compact single-head PNG for the main output folder; --plot-detailed writes
@@ -197,7 +223,7 @@ plot_attention <- function(model, token_ids, layer = 1L, head = 1L, path,
   if (is.null(tokenizer)) tokenizer <- new_byte_tokenizer()
   data <- attention_plot_data(model, token_ids, layer, head, inspection = inspection)
   save_plot(attention_figure(data, token_ids, tokenizer, layer, head),
-            path, width = 4.5, height = 4.5, svg = svg)
+            path, width = 5, height = 4.5, svg = svg)
 }
 
 next_token_probabilities <- function(model, prompt_ids) {
