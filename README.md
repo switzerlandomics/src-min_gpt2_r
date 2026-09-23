@@ -3,7 +3,9 @@
 A small, CPU-only **decoder-only Transformer** implemented directly in R. 
 This project follows our [character-level RNN](https://github.com/switzerlandomics/src-min_char_rnn_r) and [single-head Transformer](https://github.com/switzerlandomics/src-min_char_transformer_r), and shows how multi-head causal attention, independently parameterised stacked blocks, GELU feed-forward layers and tied input/output embeddings predict the next token.
 
-This is an educational **architectural reproduction**, not OpenAI's original GPT-2 pretraining pipeline, scale or language quality.
+We train and test on `tiny_shakespeare.txt`.
+
+This is an **architectural reproduction** inspired by OpenAI's GPT-2 pretraining pipeline but is not directly read to scale for hight language quality.
 
 ### Training progression
 
@@ -138,10 +140,10 @@ Rscript experiments/run.R \
 
 Allow roughly 2–3 hours as a planning estimate, not a benchmark: wider embeddings increase computation throughout attention and the feed-forward layers.
 
-I would not increase context length, width, depth and batch size together yet. Changing one variable at a time makes it much easier to explain what improved—or failed to improve—in the blog. If the wider model helps but generated passages still lose coherence over longer spans, increasing `--context-length` from 64 to 128 would be a logical subsequent experiment, although it will make CPU training substantially more expensive.
+I would not increase context length, width, depth and batch size together yet. Changing one variable at a time makes it much easier to see what improved or failed to improve. If the wider model helps but generated passages still lose coherence over longer spans, increasing `--context-length` from 64 to 128 would be a logical subsequent experiment, although it will make CPU training substantially more expensive.
 
-If you continue further:
-resume the current model to 20,000 total updates; then test a new run with context length 96. If that helps, keep the architecture fixed and try a larger (~10 MB) corpus with more training updates. The Tiny Shakespeare is about 1MB.
+My largest test was the following model to 20,000 total updates with with context length 96. 
+Beyond this I recommend keeping the architecture fixed and try a larger (~10 MB) corpus with more training updates. The Tiny Shakespeare is about 1MB. The Gutenberg project has a complete Shakespeare works txt of ~7MB.
 
 ```sh
 Rscript experiments/run.R \
